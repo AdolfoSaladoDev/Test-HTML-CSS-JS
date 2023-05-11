@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Test JavaScript</title>
+  </head>
+  <body>
+    <div id="div"></div>
+    <script>
+      /* VARIABLES */
+      let name = "Adolfo";
+      let newP = document.createElement("p");
+      let div = document.getElementById("div");
+      let body = document.body;
+      let array = ["🐶", "🐈", "🦜"];
+
+      /* Cambio el texto de P de la parte superior */
+      newP.innerText = "Hola, " + name + "!👋";
+      newP.id = "title";
+      body.insertBefore(newP, div);
+
+      /* CREO TANTOS 'P' COMO DATOS TENGA EL ARRAY */
+      for (let i = 0; i < array.length; i++) {
+        /* Creamos una P y asignamos valores */
+        let p = document.createElement("p");
+        p.innerText = array[i];
+        p.className = "hola";
+
+        /* AÑADIR ON CLICK */
+        p.addEventListener(
+          "click",
+          function (e) {
+            newP.innerText = "Hola, " + array[i] + "!👋";
+          },
+          true
+        );
+
+        /* Agrega al Div, el elemento P */
+        div.appendChild(p);
+      }
+    </script>
+  </body>
+</html>
